@@ -1,5 +1,7 @@
 spark-submit --master local[*] --py-files test.py --conf spark.pyspark.python="C:\Users\asina\AppData\Local\Programs\Python\Python39\python.exe" test.py
 
+spark-submit --master local[*] --py-files proj3.py --conf spark.pyspark.python="C:\Users\asina\AppData\Local\Programs\Python\Python39\python.exe" proj3.py
+
 
 
 import logging
