@@ -1,0 +1,4 @@
+Logistic Regression Accuracy: 0.992708614636781
+Naive Bayes Accuracy: 0.9454496354307318
+SVM Accuracy: 0.9986068697251573
+Decision Tree Accuracy: 0.9891979476100459
