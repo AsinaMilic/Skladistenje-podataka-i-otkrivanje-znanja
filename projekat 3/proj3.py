@@ -6,6 +6,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import col,sum,stddev,stddev_samp,expr,when, udf
 from pyspark.sql import functions as F
 from pyspark.sql.types import DoubleType
+from pyspark.mllib.evaluation import MulticlassMetrics
 
 PREPROCESS_DATA = True
 columns = ["Area", "MajorAxisLength", "MinorAxisLength", "Eccentricity", "ConvexArea","EquivDiameter", "Extent", "Perimeter", "Roundness", "AspectRation"]
@@ -64,7 +65,7 @@ if(PREPROCESS_DATA):
     data = data.select(*([col(c) for c in data.columns[1:]] + [col(data.columns[0])])) # Move the 11th column to the end
     data.show()
 
-#                                    eventualno da koristim selectovane attribute
+#eventualno da koristim selectovane attribute
 #############################################################################################################
 
 
@@ -108,6 +109,34 @@ lrAccuracy = lrEvaluator.evaluate(lrPredictions, {lrEvaluator.metricName: "accur
 nbAccuracy = nbEvaluator.evaluate(nbPredictions, {nbEvaluator.metricName: "accuracy"})
 svmAccuracy = svmEvaluator.evaluate(svmPredictions)
 dtAccuracy = dtEvaluator.evaluate(dtPredictions, {dtEvaluator.metricName: "accuracy"})
+
+# Confusion Matrix for Logistic Regression
+lrPredictionAndLabels = lrPredictions.select("prediction", "label").rdd
+lrMetrics = MulticlassMetrics(lrPredictionAndLabels)
+lrConfusionMatrix = lrMetrics.confusionMatrix()
+print("Logistic Regression Confusion Matrix:")
+print(lrConfusionMatrix)
+
+# Confusion Matrix for Naive Bayes
+nbPredictionAndLabels = nbPredictions.select("prediction", "label").rdd
+nbMetrics = MulticlassMetrics(nbPredictionAndLabels)
+nbConfusionMatrix = nbMetrics.confusionMatrix()
+print("Naive Bayes Confusion Matrix:")
+print(nbConfusionMatrix)
+
+# Confusion Matrix for SVM
+svmPredictionAndLabels = svmPredictions.select("prediction", "label").rdd
+svmMetrics = MulticlassMetrics(svmPredictionAndLabels)
+svmConfusionMatrix = svmMetrics.confusionMatrix()
+print("SVM Confusion Matrix:")
+print(svmConfusionMatrix)
+
+# Confusion Matrix for Decision Tree
+dtPredictionAndLabels = dtPredictions.select("prediction", "label").rdd
+dtMetrics = MulticlassMetrics(dtPredictionAndLabels)
+dtConfusionMatrix = dtMetrics.confusionMatrix()
+print("Decision Tree Confusion Matrix:")
+print(dtConfusionMatrix)
 ##############################################################################################################
 
 

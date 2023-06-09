@@ -4,6 +4,5 @@ spark-submit --master local[*] --py-files proj3.py --conf spark.pyspark.python="
 
 
 
-import logging
 //ovo postavis posle kreiranja konteksta 
-sc.setLogLevel("WARN") #da ispisuje onoliko INFO linija
+sc.setLogLevel("WARN") #da ne ispisuje onoliko INFO linija
