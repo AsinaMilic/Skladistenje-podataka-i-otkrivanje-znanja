@@ -1,8 +1,8 @@
                  Rezultat klasifikacije           
-                      Da       Ne           Ukupno
-Poznata    Da        1687.0    188.0           1697.0
- klasa     Ne         10.0     1818.0          2006.0
-         Ukupno      1697.0    2006.0          3703.0
+                      Da       Ne            Ukupno
+Poznata    Da        1818.0    10.0           2006.0
+ klasa     Ne         188.0     1687.0          1697.0
+         Ukupno      2006.0    1697.0          3703.0
 
 
 
@@ -10,12 +10,45 @@ Poznata    Da        1687.0    188.0           1697.0
 Number of instances:  3703.0
 Accuracy:  0.9465298406697272
 Error rate:  0.05347015933027277
-Sensitivity:  0.9941072480848556
-Specificity:  0.9062811565304087
-Precision:  0.9941072480848556
-recall 0.9941072480848556
-F-score: 0.9941072480848556
+Sensitivity:  0.9062811565304087
+Specificity:  0.9941072480848556
+Precision:  0.9062811565304087
+recall 0.9062811565304087
+F-score: 0.9062811565304087
 kappa:  6848843.0
 Confusion Matrix:
 1818 10
 188 1687
+sparkova:
+DenseMatrix([[1818.,   10.],
+             [ 188., 1687.]])
+DecisionTreeClassificationModel: uid=DecisionTreeClassifier_47adea1d62a2, depth=5, numNodes=19, numClasses=2, numFeatures=10
+  If (feature 2 <= 60.182961895)
+   If (feature 2 <= 57.05520208)
+    Predict: 0.0
+   Else (feature 2 > 57.05520208)
+    If (feature 8 <= 0.7346363573)
+     Predict: 0.0
+    Else (feature 8 > 0.7346363573)
+     If (feature 4 <= 5459.5)
+      Predict: 0.0
+     Else (feature 4 > 5459.5)
+      If (feature 6 <= 0.5395876042000001)
+       Predict: 0.0
+      Else (feature 6 > 0.5395876042000001)
+       Predict: 1.0
+  Else (feature 2 > 60.182961895)
+   If (feature 0 <= 5482.5)
+    Predict: 0.0
+   Else (feature 0 > 5482.5)
+    If (feature 8 <= 0.70200068065)
+     If (feature 2 <= 63.436066145)
+      If (feature 4 <= 7875.5)
+       Predict: 0.0
+      Else (feature 4 > 7875.5)
+       Predict: 1.0
+     Else (feature 2 > 63.436066145)
+      Predict: 1.0
+    Else (feature 8 > 0.70200068065)
+     Predict: 1.0
+

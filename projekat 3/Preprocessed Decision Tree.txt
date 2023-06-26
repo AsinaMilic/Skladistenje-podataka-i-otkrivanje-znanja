@@ -1,8 +1,8 @@
                  Rezultat klasifikacije           
-                      Da       Ne           Ukupno
-Poznata    Da        1689.0    171.0           1703.0
- klasa     Ne         14.0     1829.0          2000.0
-         Ukupno      1703.0    2000.0          3703.0
+                      Da       Ne            Ukupno
+Poznata    Da        1829.0    14.0           2000.0
+ klasa     Ne         171.0     1689.0          1703.0
+         Ukupno      2000.0    1703.0          3703.0
 
 
 
@@ -10,12 +10,51 @@ Poznata    Da        1689.0    171.0           1703.0
 Number of instances:  3703.0
 Accuracy:  0.9500405076964623
 Error rate:  0.04995949230353769
-Sensitivity:  0.991779213153259
-Specificity:  0.9145
-Precision:  0.991779213153259
-recall 0.991779213153259
-F-score: 0.991779213153259
+Sensitivity:  0.9145
+Specificity:  0.991779213153259
+Precision:  0.9145
+recall 0.9145
+F-score: 0.9145
 kappa:  6853580.0
 Confusion Matrix:
 1829 14
 171 1689
+sparkova:
+DenseMatrix([[1829.,   14.],
+             [ 171., 1689.]])
+DecisionTreeClassificationModel: uid=DecisionTreeClassifier_1e95f071e024, depth=5, numNodes=23, numClasses=2, numFeatures=8
+  If (feature 2 <= 0.5388648859322155)
+   If (feature 2 <= 0.472362752007559)
+    Predict: 0.0
+   Else (feature 2 > 0.472362752007559)
+    If (feature 6 <= 0.7457523062127824)
+     If (feature 3 <= 0.8434257814531455)
+      If (feature 5 <= 0.5484099314276909)
+       Predict: 0.0
+      Else (feature 5 > 0.5484099314276909)
+       Predict: 1.0
+     Else (feature 3 > 0.8434257814531455)
+      If (feature 1 <= 0.8624710744491699)
+       Predict: 0.0
+      Else (feature 1 > 0.8624710744491699)
+       Predict: 1.0
+    Else (feature 6 > 0.7457523062127824)
+     If (feature 0 <= 0.3625780437044745)
+      Predict: 0.0
+     Else (feature 0 > 0.3625780437044745)
+      Predict: 1.0
+  Else (feature 2 > 0.5388648859322155)
+   If (feature 0 <= 0.38579604578564)
+    Predict: 0.0
+   Else (feature 0 > 0.38579604578564)
+    If (feature 6 <= 0.723197916343205)
+     If (feature 2 <= 0.606999442129501)
+      If (feature 1 <= 0.7743562628323555)
+       Predict: 0.0
+      Else (feature 1 > 0.7743562628323555)
+       Predict: 1.0
+     Else (feature 2 > 0.606999442129501)
+      Predict: 1.0
+    Else (feature 6 > 0.723197916343205)
+     Predict: 1.0
+

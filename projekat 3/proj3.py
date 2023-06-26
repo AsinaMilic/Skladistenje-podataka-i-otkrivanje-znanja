@@ -2,35 +2,37 @@ from pyspark.ml.classification import LinearSVC, DecisionTreeClassifier, Logisti
 from pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator
 from pyspark.ml.feature import StringIndexer, VectorAssembler, MinMaxScaler
 from pyspark.ml.stat import Correlation
-from pyspark.ml.linalg import DenseMatrix, Vectors
 from pyspark.ml import Pipeline
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, sum, stddev, stddev_samp, expr, when, udf, mean 
+from pyspark.sql.functions import col, sum, stddev, stddev_samp, expr, udf, mean 
 from pyspark.sql import functions as F
+from pyspark.sql.functions import col as spark_col
 from pyspark.sql.types import DoubleType
 from pyspark.mllib.evaluation import MulticlassMetrics
+
 #from pyspark.ml.stat import ChiSquareTest
 import sys
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-from pyspark.sql.functions import col as spark_col
 
-PREPROCESS_DATA = False
+
+
+PREPROCESS_DATA = True
 columns = ["Area", "MajorAxisLength", "MinorAxisLength", "Eccentricity", "ConvexArea", "EquivDiameter", "Extent", "Perimeter", "Roundness", "AspectRation"]
 columns_scaled = ["Area_S", "MajorAxisLength_S", "MinorAxisLength_S", "Eccentricity_S", "ConvexArea_S", "EquivDiameter_S", "Extent_S", "Perimeter_S", "Roundness_S", "AspectRation_S"]
 
 
-def classificator_evaluation(PredictionAndLabels, output_file):
+def classificator_evaluation(PredictionAndLabels, output_file, model = None):
     if(PREPROCESS_DATA):
         output_file = "Preprocessed " +output_file 
     Metrics = MulticlassMetrics(PredictionAndLabels)
     ConfusionMatrix = Metrics.confusionMatrix()
     cm = ConfusionMatrix.toArray()
-    TP = cm[1][1]
-    TN = cm[0][0]
-    FP = cm[0][1]
-    FN = cm[1][0]
+    TP = cm[0][0]
+    TN = cm[1][1]
+    FP = cm[1][0]
+    FN = cm[0][1]
     P = TP + FP
     N = FN + TN
     Ukupno = P + N
@@ -47,7 +49,7 @@ def classificator_evaluation(PredictionAndLabels, output_file):
     with open(output_file, 'w') as file:
         sys.stdout = file
         print("                 Rezultat klasifikacije           ")
-        print("                      Da       Ne           Ukupno")
+        print("                      Da       Ne            Ukupno")
         print(f"Poznata    Da        {TP}    {FN}           {P}")
         print(f" klasa     Ne         {FP}     {TN}          {N}")
         print(f"         Ukupno      {P}    {N}          {Ukupno}")
@@ -64,6 +66,10 @@ def classificator_evaluation(PredictionAndLabels, output_file):
         print("Confusion Matrix:")
         for row in cm:
             print(" ".join(str(int(x)) for x in row))
+        print("sparkova:")
+        print(ConfusionMatrix)
+        if(model):
+            print(model.toDebugString)  
 
     sys.stdout = sys.__stdout__
 
@@ -201,14 +207,14 @@ if __name__ == "__main__":
 
     lrPredictionAndLabels = lrPredictions.select("prediction", "label").rdd
     classificator_evaluation(lrPredictionAndLabels, "Logistic Regression.txt")
-    nbPredictionAndLabels = nbPredictions.select("prediction", "label").rdd
+    nbPredictionAndLabels = nbPredictions.select("prediction", "label" ).rdd
     classificator_evaluation(nbPredictionAndLabels,"Naive Bayes.txt")
     svmPredictionAndLabels = svmPredictions.select("prediction", "label").rdd
     classificator_evaluation(svmPredictionAndLabels,"SVM.txt")
     dtPredictionAndLabels = dtPredictions.select("prediction", "label").rdd
-    classificator_evaluation(dtPredictionAndLabels,"Decision Tree.txt")
+    classificator_evaluation(dtPredictionAndLabels,"Decision Tree.txt", dtModel)
     gbtPredictionAndLabels = gbtPredictions.select("prediction", "label").rdd
-    classificator_evaluation(gbtPredictionAndLabels,"GBT.txt")
+    classificator_evaluation(gbtPredictionAndLabels,"GBT.txt", gbtModel)
 
     ##################################  5) Sačuvati i prikazati rezultate.  ######################################
     print("Logistic Regression Accuracy: " + str(lrAccuracy))

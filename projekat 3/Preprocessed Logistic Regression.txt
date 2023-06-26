@@ -1,8 +1,8 @@
                  Rezultat klasifikacije           
-                      Da       Ne           Ukupno
-Poznata    Da        1694.0    166.0           1713.0
- klasa     Ne         19.0     1824.0          1990.0
-         Ukupno      1713.0    1990.0          3703.0
+                      Da       Ne            Ukupno
+Poznata    Da        1824.0    19.0           1990.0
+ klasa     Ne         166.0     1694.0          1713.0
+         Ukupno      1990.0    1713.0          3703.0
 
 
 
@@ -10,12 +10,15 @@ Poznata    Da        1694.0    166.0           1713.0
 Number of instances:  3703.0
 Accuracy:  0.9500405076964623
 Error rate:  0.04995949230353769
-Sensitivity:  0.9889083479276124
-Specificity:  0.9165829145728643
-Precision:  0.9889083479276124
-recall 0.9889083479276124
-F-score: 0.9889083479276124
+Sensitivity:  0.9165829145728643
+Specificity:  0.9889083479276124
+Precision:  0.9165829145728643
+recall 0.9165829145728643
+F-score: 0.9165829145728643
 kappa:  6853750.0
 Confusion Matrix:
 1824 19
 166 1694
+sparkova:
+DenseMatrix([[1824.,   19.],
+             [ 166., 1694.]])
