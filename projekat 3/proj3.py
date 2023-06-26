@@ -154,7 +154,7 @@ if __name__ == "__main__":
 
 
     ####################################  1) Učitavanje podataka  ##############################################
-    raw_data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("./modified_riceClassification.csv")
+    raw_data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("./riceClassification.csv")
 
 
     ###############################  2) Preprocesranje? (koristeci spark) #######################################
