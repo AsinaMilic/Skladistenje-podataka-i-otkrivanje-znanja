@@ -1,0 +1,21 @@
+                 Rezultat klasifikacije           
+                      Da       Ne           Ukupno
+Poznata    Da        1681.0    179.0           1705.0
+ klasa     Ne         24.0     1819.0          1998.0
+         Ukupno      1705.0    1998.0          3703.0
+
+
+
+
+Number of instances:  3703.0
+Accuracy:  0.945179584120983
+Error rate:  0.05482041587901698
+Sensitivity:  0.9859237536656892
+Specificity:  0.9104104104104104
+Precision:  0.9859237536656892
+recall 0.9859237536656892
+F-score: 0.9859237536656892
+kappa:  6853614.0
+Confusion Matrix:
+1819 24
+179 1681

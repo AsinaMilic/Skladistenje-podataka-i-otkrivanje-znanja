@@ -1,21 +1,21 @@
                  Rezultat klasifikacije           
                       Da       Ne           Ukupno
-Poznata    Da        1695.0    18.0           1704.0
- klasa     Ne         9.0    1981.0          1999.0
-         Ukupno      1704.0    1999.0          3703.0
+Poznata    Da        1699.0    176.0           1724.0
+ klasa     Ne         25.0     1803.0          1979.0
+         Ukupno      1724.0    1979.0          3703.0
 
 
 
 
 Number of instances:  3703.0
-Accuracy:  0.992708614636781
-Error rate:  0.0072913853632190495
-Sensitivity:  0.9947183098591549
-Specificity:  0.9909954977488744
-Precision:  0.9947183098591549
-recall 0.9947183098591549
-F-score: 0.9947183098591549
-kappa:  6896962.0
+Accuracy:  0.9457196867404807
+Error rate:  0.05428031325951932
+Sensitivity:  0.9854988399071926
+Specificity:  0.911066195048004
+Precision:  0.9854988399071926
+recall 0.9854988399071926
+F-score: 0.9854988399071926
+kappa:  6850112.0
 Confusion Matrix:
-1981 9
-18 1695
+1803 25
+176 1699
