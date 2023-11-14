@@ -1,0 +1,27 @@
+Projekat 2: Data Analysis and Prediction using WEKA
+
+Overview
+
+This project focuses on a comprehensive analysis of a banking dataset to predict whether a client will purchase a Personal Equity Plan (PEP). The dataset contains attributes like client age, sex, region, income, marital status, etc.
+
+Dataset
+
+- Source: [Bank Data](http://facweb.cs.depaul.edu/mobasher/classes/ect584/WEKA/data/bank-data.csv)
+- Attributes include ID, age, sex, region, income, marital status, etc.
+
+Methodology
+
+- **Data Preprocessing**: Removal of unnecessary attributes like ID, data discretization, and normalization of numerical values.
+- **Analysis**: Implementation of various algorithms like NaiveBayes, ZeroR, OneR, K Nearest Neighbors (kNN), J48, and Random Forest.
+- **Performance Evaluation**: Using metrics like accuracy, sensitivity, specificity, precision, recall, and F-measure.
+
+Key Findings
+
+- The analysis included both unfiltered and discretized datasets, with NaiveBayes serving as a baseline.
+- The use of ensemble learning techniques, particularly Bagging, yielded the best results.
+- Detailed analysis of the algorithms' performance using confusion matrix and ROC curves.
+
+Conclusion
+
+The project demonstrates the effectiveness of various machine learning algorithms in predicting client behavior based on banking data, with a particular emphasis on ensemble techniques for enhanced accuracy.
+
