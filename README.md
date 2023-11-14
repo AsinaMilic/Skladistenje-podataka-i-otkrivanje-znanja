@@ -1,4 +1,4 @@
-# Main Repository for Data Storage and Knowledge Discovery
+Data Storage and Knowledge Discovery
 
 Below are the links to individual project details. Each project is self-contained and demonstrates unique approaches and methodologies in the fields of data analysis, machine learning, and data warehousing.
 
