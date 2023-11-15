@@ -4,8 +4,8 @@ Below are the links to individual project details. Each project is self-containe
 
 ## Projects Overview
 
-- [Projekat 1](projekat1/README.md) : A deep dive into data analysis and prediction, employing various machine learning algorithms to predict client behavior based on banking data.
-- [Projekat 2](projekat2/README.md) : Advanced exploration of data warehousing concepts, demonstrating the ETL process, dimensional modeling, and data mart creation.
+- [Projekat 1](projekat1/README.md) : Advanced exploration of data warehousing concepts, demonstrating the ETL process, dimensional modeling, and data mart creation.
+- [Projekat 2](projekat2/README.md) : A deep dive into data analysis and prediction, employing various machine learning algorithms to predict client behavior based on banking data.
 - [Projekat 3](projekat3/README.md) : Focused on Apache Spark for data processing and analysis, this project showcases the power of big data technologies in analyzing complex datasets.
 
 ## Repository Structure
